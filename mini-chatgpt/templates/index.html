@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>Mini GPT</h1>
+
+    <input type="text" id="mensagem">
+
+    <button onclick="enviarMensagem()">
+        Enviar
+    </button>
+
+    <div id="chat"></div>
+
+<script>
+
+async function enviarMensagem() {
+
+    let input = document.getElementById("mensagem")
+
+    let mensagem = input.value
+
+    let resposta = await fetch("/chat", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            mensagem: mensagem
+        })
+    })
+
+    let dados = await resposta.json()
+
+    let chat = document.getElementById("chat")
+
+    chat.innerHTML += `<p>${dados.resposta}</p>`
+
+}
+
+</script>
+
+</body>
+</html>
