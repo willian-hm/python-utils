@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        180deg,
+        #050816 0%,
+        #090d1f 40%,
+        #0d1329 100%
+    );
+
+    color: white;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 40px;
+
+    overflow-x: hidden;
+}
+
+/* =========================
+   TÍTULO
+========================= */
+
+h1{
+    font-size: 3rem;
+    margin-bottom: 30px;
+
+    color: #9b5cff;
+
+    text-shadow:
+        0 0 10px #7b2cff,
+        0 0 20px #7b2cff,
+        0 0 40px #7b2cff;
+
+    letter-spacing: 2px;
+}
+
+/* =========================
+   CONTAINER DO CHAT
+========================= */
+
+#chat{
+    width: 80%;
+    max-width: 900px;
+    height: 500px;
+
+    background: rgba(15, 15, 30, 0.85);
+
+    border: 1px solid rgba(123, 44, 255, 0.4);
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    overflow-y: auto;
+
+    margin-top: 25px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 0 15px rgba(123, 44, 255, 0.3),
+        0 0 40px rgba(123, 44, 255, 0.15);
+}
+
+/* =========================
+   MENSAGENS
+========================= */
+
+#chat p{
+    background: rgba(123, 44, 255, 0.12);
+
+    border-left: 4px solid #9b5cff;
+
+    padding: 15px;
+
+    margin-bottom: 15px;
+
+    border-radius: 12px;
+
+    line-height: 1.5;
+
+    animation: aparecer 0.3s ease;
+}
+
+/* =========================
+   INPUT
+========================= */
+
+input{
+    width: 80%;
+    max-width: 900px;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(123, 44, 255, 0.4);
+
+    outline: none;
+
+    background: rgba(10, 10, 20, 0.9);
+
+    color: white;
+
+    font-size: 1rem;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 0 10px rgba(123, 44, 255, 0.2);
+}
+
+input:focus{
+    border-color: #9b5cff;
+
+    box-shadow:
+        0 0 15px rgba(123, 44, 255, 0.6),
+        0 0 30px rgba(123, 44, 255, 0.2);
+}
+
+/* =========================
+   BOTÃO
+========================= */
+
+button{
+    margin-top: 20px;
+
+    width: 220px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #6a00ff,
+        #9b5cff
+    );
+
+    color: white;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow:
+        0 0 15px rgba(123, 44, 255, 0.4);
+}
+
+button:hover{
+    transform: translateY(-3px) scale(1.02);
+
+    box-shadow:
+        0 0 20px rgba(123, 44, 255, 0.8),
+        0 0 50px rgba(123, 44, 255, 0.3);
+}
+
+button:active{
+    transform: scale(0.98);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+#chat::-webkit-scrollbar{
+    width: 10px;
+}
+
+#chat::-webkit-scrollbar-track{
+    background: #0b0f1f;
+}
+
+#chat::-webkit-scrollbar-thumb{
+    background: #7b2cff;
+    border-radius: 10px;
+}
+
+/* =========================
+   ANIMAÇÃO
+========================= */
+
+@keyframes aparecer{
+
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+}
+
+/* =========================
+   FUNDO GLOW
+========================= */
+
+body::before{
+    content: "";
+
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    background: rgba(123, 44, 255, 0.15);
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    top: -100px;
+    left: -100px;
+
+    z-index: -1;
+}
+
+body::after{
+    content: "";
+
+    position: fixed;
+
+    width: 400px;
+    height: 400px;
+
+    background: rgba(0, 102, 255, 0.1);
+
+    border-radius: 50%;
+
+    filter: blur(120px);
+
+    bottom: -100px;
+    right: -100px;
+
+    z-index: -1;
+}
